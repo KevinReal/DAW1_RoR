@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  localPoints: 1
+  visitorPoints: 1
+  date: 2017-12-24 21:24:06
+
+two:
+  localPoints: 1
+  visitorPoints: 1
+  date: 2017-12-24 21:24:06

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @player_stat.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @player_stat.value %>
+</p>
+
+<%= link_to 'Edit', edit_player_stat_path(@player_stat) %> |
+<%= link_to 'Back', player_stats_path %>

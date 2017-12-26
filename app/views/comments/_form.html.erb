@@ -26,6 +26,11 @@
     <%= form.text_area :body, id: :comment_body %>
   </div>
 
+<div class="field">
+    <%= form.label :article_id %>
+    <%= form.number_field :article_id, id: :comment_article_id %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

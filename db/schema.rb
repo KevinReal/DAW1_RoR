@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20171224212406) do
     t.string "subtitle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-		t.integer "team_id"
+    t.integer "team_id"
     t.integer "competition_id"
     t.integer "result_id"
   end
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20171224212406) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-		t.integer "article_id"		
+    t.integer "article_id"
   end
 
   create_table "competitions", force: :cascade do |t|
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20171224212406) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-		t.integer "player_id"
+    t.integer "player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20171224212406) do
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-		t.integer "team_id"
+    t.integer "team_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 20171224212406) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-		t.integer "competition_id"
-    t.integer "local_team_id"
-    t.integer "visitor_team_id"
+    t.integer "competition_id"
+    t.integer "team_id_local"
+		t.integer "team_id_visitor"
   end
 
   create_table "team_stats", force: :cascade do |t|
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20171224212406) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-		t.integer "team_id"
+    t.integer "team_id"
   end
 
   create_table "teams", force: :cascade do |t|

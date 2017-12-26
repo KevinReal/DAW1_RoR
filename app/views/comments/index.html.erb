@@ -8,6 +8,8 @@
       <th>Author</th>
       <th>Published at</th>
       <th>Body</th>
+			<th>Article</th>
+			<th>Comment_id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +20,8 @@
         <td><%= comment.author %></td>
         <td><%= comment.published_at %></td>
         <td><%= comment.body %></td>
+				<td><%= comment.article_id %></td>
+				<td><%= comment.id %></td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

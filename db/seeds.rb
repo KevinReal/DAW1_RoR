@@ -48,21 +48,21 @@ teamstats =TeamStat.create [
 ]
 
 results = Result.create [
-	{local_team_id:3, visitor_team_id:2, date:29-10-2015, competition_id:1, localPoints:32 ,visitorPoints:31},
-	{local_team_id:1, visitor_team_id:2, date:01-02-2018, competition_id:1},
-	{local_team_id:2, visitor_team_id:1, date:10-11-2017, competition_id:1, localPoints:200 ,visitorPoints:233}
+	{team_id_local:3, team_id_visitor:1, date: "29-10-2015", competition_id:1, localPoints:32 ,visitorPoints:31},
+	{team_id_local:1, team_id_visitor:2, date: "01-02-2018", competition_id:1},
+	{team_id_local:2, team_id_visitor:4, date: "10-11-2017", competition_id:1, localPoints:200 ,visitorPoints:233}
 ]
 
 articles = Article.create [
-	{author:"juan43", published_at:"20-04-2016", body:"anb nino nonias ", title:"La liga cambia en enero", subtitle:"Siempre lo mismo", competition_id:1},
-	{author:"pepe7", published_at:"30-10-2015", body:"askdasdhasioa asjkd hasai", title:"Son los peores", subtitle:"Qué malos son", result_id:1},
-	{author:"pepe1", published_at:"10-11-2017", body:"blalalalalalallalalala", title:"Son los mejores", subtitle:"Qué buenos son", team_id:1}
+	{author:"pepe43", published_at:"20-04-2016", body:"anb nino nonias ", title:"La liga cambia en enero", subtitle:"Siempre lo mismo", competition_id:1},
+	{author:"juan7", published_at:"30-10-2015", body:"askdasdhasioa asjkd hasai", title:"Son los peores", subtitle:"Qué malos son", result_id:1},
+	{author:"abelardo1", published_at:"10-11-2017", body:"blalalalalalallalalala", title:"Son los mejores", subtitle:"Qué buenos son", team_id:1}
 ]
 
 comments = Comment.create [
-	{author:"panchito" ,published_at:22-04-2016, body:"no me gushta", article_id:1},
-	{author:"fulanita" ,published_at:31-10-2015, body:"es mentira", article_id:2},
-	{author:"jorgito" ,published_at:11-11-2017, body:"es verdad", article_id:3}
+	{author:"panchito" ,published_at: "22-04-2016", body:"no me gushta", article_id:1},
+	{author:"fulanita" ,published_at: "31-10-2015", body:"es mentira", article_id:2},
+	{author:"jorgito" ,published_at: "11-11-2017", body:"es verdad", article_id:3}
 ]
 
 

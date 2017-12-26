@@ -1,6 +1,8 @@
 class Result < ApplicationRecord
-	has_one	:article
+	has_one	:article, dependent: :nullify
 	belongs_to	:competition
-	has_one	:local_team, class_name:'team', foreign_key: 'local_team_id'
-	has_one	:visitor_team, class_name:'team', foreign_key: 'visitor_team_id'
+	belongs_to	:team, :class_name => 'Team', :foreign_key => 'team_id_local'
+	belongs_to	:team, :class_name => 'Team', :foreign_key => 'team_id_visitor'
+	validates :date, presence: {message: "el campo no puede quedar vacío"}
+	default_scope -> {order('lower(date) ASC')}
 end

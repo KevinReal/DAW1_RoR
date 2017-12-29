@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228235158) do
+ActiveRecord::Schema.define(version: 20171229015148) do
 
   create_table "articles", force: :cascade do |t|
     t.string "author"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20171228235158) do
     t.integer "team_id"
     t.integer "competition_id"
     t.integer "result_id"
+    t.string "foto"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -63,6 +64,15 @@ ActiveRecord::Schema.define(version: 20171228235158) do
     t.integer "team_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.date "birthday"
+    t.text "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "results", force: :cascade do |t|
     t.integer "localPoints"
     t.integer "visitorPoints"
@@ -84,6 +94,13 @@ ActiveRecord::Schema.define(version: 20171228235158) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "hashed_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

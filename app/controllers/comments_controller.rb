@@ -26,6 +26,6 @@ class CommentsController < ApplicationController
       @article = Article.find_by_id(params[:article_id])
     end
     def comment_params
-      params.require(:comment).permit(:name, :email, :body)
+      params.require(:comment).permit(:author, :published_at, :body)
     end
 end

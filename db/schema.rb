@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229015148) do
+ActiveRecord::Schema.define(version: 20171229135223) do
 
   create_table "articles", force: :cascade do |t|
     t.string "author"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20171229015148) do
     t.integer "competition_id"
     t.integer "result_id"
     t.string "foto"
+    t.integer "user_id"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "author"
+    t.string "creator"
     t.datetime "published_at"
     t.text "body"
     t.datetime "created_at", null: false

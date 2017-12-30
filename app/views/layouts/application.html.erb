@@ -10,7 +10,7 @@
 
   <body>
     <div id="header">
-      <h1><%= link_to "blog", root_path %></h1>
+      <h1><%= link_to "pick&roll", root_path %></h1>
       <div id="user_bar">
         <% if logged_in? %>
           <%= link_to "new Article", new_article_path %>
@@ -18,6 +18,7 @@
           <%= link_to "logout",logout_path %>
         <% else %>
           <%= link_to "login",login_path %>
+					<%= link_to "new user",new_user_path %>
         <% end %>
       
       </div>
@@ -31,7 +32,7 @@
     <%= yield %>
     </div>
     <div id="footer">
-      <p> Simple blog from beginning rails 4<p>
+      <p> Mejor página en rails de la historia me neño<p>
     </div>
     
   </body>

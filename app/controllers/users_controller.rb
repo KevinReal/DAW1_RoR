@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   
   def update 
     if @user.update(user_params)
-      redirect_to articles_path, notice: "usuario actualizad con éxito"
+      redirect_to articles_path, notice: "usuario actualizado con éxito"
     else
       render action: :edit
     end

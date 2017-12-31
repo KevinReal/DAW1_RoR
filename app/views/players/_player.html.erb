@@ -1,0 +1,11 @@
+<%= div_for player do %> 
+  <h3>
+    <%= player.name %> said:
+    <% if @team.owned_by? current_user %> 
+      <span class="actions">
+         <%= link_to "delete",team_player_path(team_id: @team,id: player), method: :delete, data: {confirm: "seguro?"} %> 
+      </span>
+     <% end %> 
+  </h3>
+   <%= player.name %> 
+<% end %> 

@@ -1,10 +1,10 @@
-<%= form_with(model: player, local: true) do |form| %>
-  <% if player.errors.any? %>
+<%= form_with(model: @player, local: true, html: {multipart: true}) do |form| %>
+  <% if @player.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(player.errors.count, "error") %> prohibited this player from being saved:</h2>
+      <h2><%= pluralize(@player.errors.count, "error") %> prohibited this player from being saved:</h2>
 
       <ul>
-      <% player.errors.full_messages.each do |message| %>
+      <% @player.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -14,11 +14,6 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :player_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.number_field :number, id: :player_number %>
   </div>
 
   <div class="actions">

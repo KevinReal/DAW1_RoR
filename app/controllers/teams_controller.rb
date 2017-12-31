@@ -1,15 +1,28 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show]
+	before_action :authenticate, except: [:index, :show]
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @teams = Team.con_name(params[:buscar])
+    if @teams.present?
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html
+        format.js {render 'fallo_teams.js.erb'}
+      end      
+    end
   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
+		redirect_to({action: :index}, notice: 'Team no encontrado') unless @team
   end
 
   # GET /teams/new
@@ -19,12 +32,14 @@ class TeamsController < ApplicationController
 
   # GET /teams/1/edit
   def edit
+		@team = current_user.teams.find_by_id(params[:id])
+   	redirect_to root_path, alert: "operación no permitida" unless @team
   end
 
   # POST /teams
   # POST /teams.json
   def create
-    @team = Team.new(team_params)
+    @team = current_user.teams.new(team_params)
 
     respond_to do |format|
       if @team.save
@@ -40,20 +55,22 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1
   # PATCH/PUT /teams/1.json
   def update
-    respond_to do |format|
-      if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
-        format.json { render :show, status: :ok, location: @team }
-      else
-        format.html { render :edit }
-        format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
-    end
+			@team = current_user.teams.find(params[:id])
+			respond_to do |format|
+      	if @team.update(team_params)
+        	format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+        	format.json { render :show, status: :ok, location: @team }
+     	 else
+        	format.html { render :edit }
+        	format.json { render json: @team.errors, status: :unprocessable_entity }
+      	end
+    	end
   end
 
   # DELETE /teams/1
   # DELETE /teams/1.json
   def destroy
+		@team = current_user.teams.find(params[:id])
     @team.destroy
     respond_to do |format|
       format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
@@ -64,7 +81,7 @@ class TeamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
-      @team = Team.find(params[:id])
+      @team = Team.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

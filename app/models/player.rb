@@ -1,4 +1,5 @@
 class Player < ApplicationRecord
+	belongs_to :user, optional: true
 	has_many :player_stats, dependent: :nullify
 	belongs_to	:team
 	validates :name, :number, presence: {message: "el campo no puede quedar vacío"} 

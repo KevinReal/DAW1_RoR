@@ -1,5 +1,17 @@
-<h1>New Player Stat</h1>
+<%= form_with(model: [@player, @player.player_stats.new], local: true) do |form| %>
 
-<%= render 'form', player_stat: @player_stat %>
 
-<%= link_to 'Back', player_stats_path %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name%>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.number_field :value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Add' %>
+  </div>
+<% end %>

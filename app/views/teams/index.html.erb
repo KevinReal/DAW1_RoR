@@ -1,28 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h3> Filtrar por </h3>
+<%= form_tag teams_path, method: "get", remote: true do %>
+<p>
+  <%= text_field_tag :buscar, params[:buscar] %>
+  <%= submit_tag "Buscar", name: "" %>
+</p>
+<% end %>
+<br/>
+<br/>
 
-<h1>Teams</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-			<th>Team_id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.name %></td>
-				<td><%= team.id %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="teams">
+  <%= render @teams %>
+</div>
 
 <br>
 

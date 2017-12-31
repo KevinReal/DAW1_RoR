@@ -1,5 +1,17 @@
-<h1>New Player</h1>
+<%= form_with(model: [@team, @team.players.new], local: true) do |form| %>
 
-<%= render 'form', player: @player %>
 
-<%= link_to 'Back', players_path %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name%>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Add' %>
+  </div>
+<% end %>

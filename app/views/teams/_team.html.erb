@@ -1,0 +1,12 @@
+<%= div_for team do %> 
+  <h3>
+    <%= link_to team.name, team %> 
+    <% if team.owned_by? current_user  %> 
+      <span class="actions">
+        <%= link_to "edit", edit_team_path(team) %> 
+        <%= link_to "delete",team, method: :delete, data: {confirm: "seguro?"} %> 
+      </span>
+    <% end %> 
+  </h3>
+   <%= team.name %> 
+<% end %> 

@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
+<%= render  @player %> 
 
-<p>
-  <strong>Name:</strong>
-  <%= @player.name %>
-</p>
+<h3> Players_stats </h3>
+<div  id="players">
+  <%= render @players.player_stats %> 
+</div>
 
-<p>
-  <strong>Number:</strong>
-  <%= @player.number %>
-</p>
+<%= render file:'player_stats/new' %> 
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<%= link_to 'Edit', edit_team_player_path(@player) %> |
+<%= link_to 'Back', teams_players_path %>

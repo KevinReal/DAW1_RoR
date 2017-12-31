@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    redirect_to({action: :index}, notice: 'art no encontrado') unless @article
+    redirect_to({action: :index}, notice: 'Artículo no encontrado') unless @article
    
   end
 

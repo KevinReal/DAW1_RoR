@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
+<%= render  @team %> 
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
+<h3> Teams </h3>
+<div  id="teams">
+  <%= render @team.players %> 
+</div>
+
+<%= render file:'players/new' %> 
 
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

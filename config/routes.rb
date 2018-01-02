@@ -2,13 +2,12 @@ Rails.application.routes.draw do
 	root to: "articles#index"
   resources :results
   resources :competitions
-  resources :team_stats
   resources :teams do
 		resources :players do
 			resources :player_stats
 		end
+	resources :team_stats
 	end
-  resources :comments
   resources :articles do
     resources :comments
   end

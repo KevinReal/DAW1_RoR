@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :load_article, except: :destroy
-  before_action :authenticate, only: :destroy
+  before_action :authenticate
 
  def create
     @comment = @article.comments.new(comment_params)

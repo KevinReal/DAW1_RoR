@@ -1,11 +1,12 @@
 <%= div_for player do %> 
   <h3>
-    <%= player.name %> said:
+    Jugador: <%= player.name %>
     <% if @team.owned_by? current_user %> 
       <span class="actions">
+				 <%= link_to "edit", edit_team_player_path(team_id: @team,id: player) %> 
          <%= link_to "delete",team_player_path(team_id: @team,id: player), method: :delete, data: {confirm: "seguro?"} %> 
       </span>
      <% end %> 
   </h3>
-   <%= player.name %> 
+   Número: <%= player.number %> 
 <% end %> 

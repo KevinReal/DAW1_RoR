@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231163814) do
+ActiveRecord::Schema.define(version: 20181207114242) do
 
   create_table "articles", force: :cascade do |t|
     t.string "author"
@@ -18,22 +18,22 @@ ActiveRecord::Schema.define(version: 20171231163814) do
     t.text "body"
     t.string "title"
     t.string "subtitle"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "team_id"
     t.integer "competition_id"
     t.integer "result_id"
     t.string "foto"
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
+    t.integer "article_id"
     t.string "creator"
     t.datetime "published_at"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "article_id"
   end
 
   create_table "competitions", force: :cascade do |t|
@@ -52,26 +52,16 @@ ActiveRecord::Schema.define(version: 20171231163814) do
   create_table "player_stats", force: :cascade do |t|
     t.string "name"
     t.integer "value"
+    t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "player_id"
-    t.integer "user_id"
   end
 
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.integer "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "team_id"
     t.integer "user_id"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "name"
-    t.date "birthday"
-    t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,19 +70,19 @@ ActiveRecord::Schema.define(version: 20171231163814) do
     t.integer "localPoints"
     t.integer "visitorPoints"
     t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "competition_id"
     t.integer "team_id_local"
     t.integer "team_id_visitor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "team_stats", force: :cascade do |t|
     t.string "name"
     t.integer "value"
+    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "team_id"
   end
 
   create_table "teams", force: :cascade do |t|

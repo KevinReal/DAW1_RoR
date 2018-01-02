@@ -1,4 +1,5 @@
-<h3> Filtrar por </h3>
+<h1>Articles</h1>
+<h3> Filtrar por título</h3>
 <%= form_tag articles_path, method: "get", remote: true do %>
 <p>
   <%= text_field_tag :buscar, params[:buscar] %>

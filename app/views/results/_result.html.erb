@@ -1,0 +1,11 @@
+<%= div_for result do %> 
+  <h3>
+    <%= link_to result.date, result %> 
+    <% if result.owned_by? current_user  %> 
+      <span class="actions">
+        <%= link_to "edit", edit_result_path(result) %> 
+        <%= link_to "delete",result, method: :delete, data: {confirm: "seguro?"} %> 
+      </span>
+    <% end %> 
+  </h3>
+<% end %> 

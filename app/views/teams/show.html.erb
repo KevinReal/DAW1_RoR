@@ -7,5 +7,14 @@
 
 <%= render file:'players/new' %> 
 
+<h3> Team_stats </h3>
+<div  id="team_stats">
+  <%= render @team.team_stats %> 
+</div>
+
+<%= render file:'team_stats/new' %> 
+
+<%= link_to 'New Competition', new_competition_path(@team) %> |
+
 <%= link_to 'Edit', edit_team_path(@team) %> |
 <%= link_to 'Back', teams_path %>

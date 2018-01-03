@@ -1,10 +1,10 @@
-<%= form_with(model: competition, local: true) do |form| %>
-  <% if competition.errors.any? %>
+<%= form_with(model: @competition, local: true, html: {multipart: true}) do |form| %>
+  <% if @competition.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
+      <h2><%= pluralize(@competition.errors.count, "error") %> prohibited this competition from being saved:</h2>
 
       <ul>
-      <% competition.errors.full_messages.each do |message| %>
+      <% @competition.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -14,6 +14,11 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :competition_name %>
+  </div>
+
+	 <div class="field">
+    <%= form.label :Teams %>
+    <%= form.number_field :teams, id: :competition_teams %>
   </div>
 
   <div class="actions">

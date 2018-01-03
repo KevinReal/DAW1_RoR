@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   before_action :load_team, except: :destroy
-  before_action :authenticate, only: :destroy
+  before_action :authenticate
 
   def create
     @player = @team.players.new(player_params)

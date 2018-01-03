@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :articles, ->{order('published_at DESC, title ASC')}, dependent: :nullify
 	has_many :teams, dependent: :nullify
 	has_many :players, dependent: :nullify
+	has_many :results, dependent: :nullify
+	has_many :competitions, dependent: :nullify
   has_many :replies, through: :articles, source: :comments
   validates :email, uniqueness: {case_sensitive: false, message: 'El correo debe ser único'}, length: {in: 6..20, too_short: "debe tener al menos %{count} caracteres"}, format: {multiline: true,with: /^.+@.+$/, message: "formato de correo no valido"}
   validates :password, confirmation: true, length: {within: 4..20}, presence: {if: :password_required?}

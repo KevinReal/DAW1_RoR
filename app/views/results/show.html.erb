@@ -1,19 +1,5 @@
-<p id="notice"><%= notice %></p>
+<%= render  @result %> 
 
-<p>
-  <strong>Localpoints:</strong>
-  <%= @result.localPoints %>
-</p>
-
-<p>
-  <strong>Visitorpoints:</strong>
-  <%= @result.visitorPoints %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @result.date %>
-</p>
 
 <%= link_to 'Edit', edit_result_path(@result) %> |
 <%= link_to 'Back', results_path %>

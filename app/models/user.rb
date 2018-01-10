@@ -2,7 +2,6 @@ require 'digest'
 class User < ApplicationRecord
   attr_accessor :password
   before_save :encrypt_new_password
-  has_one :profile
   has_many :articles, ->{order('published_at DESC, title ASC')}, dependent: :nullify
 	has_many :teams, dependent: :nullify
 	has_many :players, dependent: :nullify

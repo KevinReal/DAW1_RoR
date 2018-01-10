@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181207114244) do
+ActiveRecord::Schema.define(version: 20181207114246) do
 
   create_table "articles", force: :cascade do |t|
     t.string "author"
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 20181207114244) do
     t.integer "visitorPoints"
     t.datetime "date"
     t.integer "competition_id"
-    t.integer "team_id_local"
-    t.integer "team_id_visitor"
+    t.integer "local_id"
+    t.integer "visitor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

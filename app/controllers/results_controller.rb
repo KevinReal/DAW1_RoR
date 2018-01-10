@@ -86,6 +86,6 @@ class ResultsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def result_params
-      params.require(:result).permit(:localPoints, :visitorPoints, :date, :team_id_local, :team_id_visitor)
+      params.require(:result).permit(:localPoints, :visitorPoints, :date,:journey, :team_id_local, :team_id_visitor)
     end
 end

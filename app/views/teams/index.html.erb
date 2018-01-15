@@ -1,19 +1,20 @@
-<h1> Teams </h1>
-<h3> Filtrar por nombre</h3>
-<%= form_tag teams_path, method: "get", remote: true do %>
-<p>
-  <%= text_field_tag :buscar, params[:buscar] %>
-  <%= submit_tag "Buscar", name: "" %>
-</p>
-<% end %>
-<br/>
-<br/>
+<div class="container">
+	<% if current_user %>
+		<%= link_to 'New Team', new_team_path %>
+		<hr/>
+	<% end %>
 
+	<h1>Equipos</h1>
+	<h3> Filtrar por nombre</h3>
+	<%= form_tag teams_path, method: "get", remote: true do %>
+	<p>
+	  <%= text_field_tag :buscar, params[:buscar] %>
+	  <%= submit_tag "Buscar", class:"btn btn-default" %>
+	</p>
+	<% end %>
 
-<div id="teams">
-  <%= render @teams %>
+	<div id="teams">
+	  <%= render @teams %>
+	</div>
 </div>
 
-<br>
-
-<%= link_to 'New Team', new_team_path %>

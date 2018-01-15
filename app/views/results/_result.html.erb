@@ -1,11 +1,41 @@
-<%= div_for result do %> 
-  <h3>
-    <%= link_to result.date, result %> 
-    <% if result.owned_by? current_user  %> 
-      <span class="actions">
-        <%= link_to "edit", edit_result_path(result) %> 
-        <%= link_to "delete",result, method: :delete, data: {confirm: "seguro?"} %> 
-      </span>
-    <% end %> 
-  </h3>
+<div class="container-fluid resultados">
+    <div class="col-sm-2 col-xs-6 partido">
+    	<%= image_tag(result.competition.foto, class:"imgResultado liga") if result.competition.foto.present? %>
+        
+    </div>
+    <div class="col-sm-2 col-xs-6 partido">
+        <h4 class="text-center"><%= result.date.strftime('%d-%m-%Y %H:%M') %></h4>
+    </div>
+    <div class="col-sm-8 col-xs-12 partido">
+        <div class="col-xs-2 partido">
+        	<%= image_tag(result.visitor.foto, class:"imgResultado") if result.visitor.foto.present? %>
+            
+        </div>
+        <div class="col-xs-3 partido">
+            <h4 class="text-center"><%= result.visitor.name %></h4>
+        </div>
+        <div class="col-xs-2 partido">
+            <h4 class="text-center"><%= result.visitorPoints %>-<%= result.localPoints %></h4>
+        </div>
+        <div class="col-xs-3 partido">
+            <h4 class="text-center"><%= result.local.name %></h4>
+        </div>
+        <div class="col-xs-2 partido">
+            <%= image_tag(result.local.foto, class:"imgResultado") if result.local.foto.present? %>
+        </div>
+    </div>
+</div>
+
+<% if result.owned_by? current_user  %> 
+	<div class="container-fluid">
+    	<span class="actions">
+	        <%= link_to "edit", edit_result_path(result) %> | 
+	        <%= link_to "delete",result, method: :delete, data: {confirm: "seguro?"} %> 
+    	</span>
+	</div>
 <% end %> 
+
+<hr/>
+
+
+

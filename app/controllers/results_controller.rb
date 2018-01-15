@@ -5,7 +5,15 @@ class ResultsController < ApplicationController
   # GET /results
   # GET /results.json
   def index
-    @results = Result.con_fecha(params[:buscar])
+    if params[:buscarResFecha].present? and params[:buscarResComp].present?
+      @results = Result.con_fecha(params[:buscarResFecha]).de_competition(params[:buscarResComp])
+      @sugerencias = Article.of_competition(params[:buscarResComp]).limit(3)
+    else
+      @results = Result.con_fecha
+      @sugerencias = Article.recent.limit(3)
+    end
+    
+
     if @results.present?
       respond_to do |format|
         format.html
@@ -86,6 +94,6 @@ class ResultsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def result_params
-      params.require(:result).permit(:localPoints, :visitorPoints, :date,:journey, :team_id_local, :team_id_visitor)
+      params.require(:result).permit(:localPoints, :visitorPoints, :date,:journey, :local_id, :visitor_id, :competition_id)
     end
 end

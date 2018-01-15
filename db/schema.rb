@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181207114247) do
+ActiveRecord::Schema.define(version: 20181207114253) do
 
   create_table "articles", force: :cascade do |t|
     t.string "author"
@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20181207114247) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "article_id"
-    t.string "creator"
     t.datetime "published_at"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "competitions", force: :cascade do |t|
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20181207114247) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "foto"
   end
 
   create_table "competitions_teams", force: :cascade do |t|
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20181207114247) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "foto"
   end
 
   create_table "results", force: :cascade do |t|
@@ -93,6 +95,7 @@ ActiveRecord::Schema.define(version: 20181207114247) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "foto"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,6 +103,7 @@ ActiveRecord::Schema.define(version: 20181207114247) do
     t.string "hashed_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
 end

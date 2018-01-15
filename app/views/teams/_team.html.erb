@@ -1,6 +1,7 @@
-<%= div_for team do %> 
+<%= div_for team, class:"col-md-4" do %> 
   <h3>
-    <%= link_to team.name, team %> 
+  	<%= link_to team.name, team %> 
+  	<%= link_to image_tag(team.foto, height:"70px"), team %>
     <% if team.owned_by? current_user  %> 
       <span class="actions">
         <%= link_to "edit", edit_team_path(team) %> 

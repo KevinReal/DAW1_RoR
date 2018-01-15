@@ -1,3 +1,27 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nav-tabs>li>a {
+    background-color: #222222;
+    border-color: rgb(157,157,157);
+    color:rgb(157,157,157);
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: rgb(8,8,8);
+    border: 2px solid rgb(8,8,8);
+}
+
+
+.nav-tabs>li>a:hover {
+    border-color: #222222;
+    background-color: #222222;
+    color:white
+}
+
+.logoEquipo{
+  float: left;
+  height: 100%;
+}

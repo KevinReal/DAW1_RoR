@@ -1,10 +1,9 @@
 <%= div_for competition do %> 
   <h3>
-    <%= link_to competition.name, competition %> 
     <% if competition.owned_by? current_user  %> 
       <span class="actions">
-        <%= link_to "edit", edit_competition_path(competition) %> 
-        <%= link_to "delete",competition, method: :delete, data: {confirm: "seguro?"} %> 
+        <p class="text-center"><%= link_to "edit", edit_competition_path(competition) %></p> |
+        <p class="text-center"><%= link_to "delete",competition, method: :delete, data: {confirm: "seguro?"} %> </p>
       </span>
     <% end %> <br> 					
   </h3>

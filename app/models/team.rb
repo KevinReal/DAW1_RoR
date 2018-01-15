@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
+	mount_uploader :foto, FotoUploader
 	belongs_to :user, optional: true
 	has_many	:players, dependent: :nullify
 	has_many	:team_stats, dependent: :nullify

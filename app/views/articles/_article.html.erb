@@ -1,5 +1,6 @@
+<!--
 <%= div_for article do %> 
-  <h3>
+  <h1>
     <%= link_to article.title, article %> 
     <% if article.owned_by? current_user  %> 
       <span class="actions">
@@ -7,7 +8,22 @@
         <%= link_to "delete",article, method: :delete, data: {confirm: "seguro?"} %> 
       </span>
     <% end %> 
-  </h3>
+  </h1>
    <%= image_tag(article.foto, size: "30x30") if article.foto.present? %>
-   <%= article.body %> 
+   <h3><%= article.subtitle %> </h3>
 <% end %> 
+-->
+
+<div class="container">
+    <div class="col-md-12">
+        <%= image_tag(article.foto, size: "30x30", class:"Imagen") if article.foto.present? %>
+    </div>
+</div>
+
+<div class="container">
+    <div class="col-md-12">
+        <h1 class="text-nowrap text-center"><%= article.title %> </h1>
+        <h3 class="text-justify"><%= article.subtitle %> </h3>
+        <p class="text-justify"><%= article.body %></p>
+    </div>
+</div>

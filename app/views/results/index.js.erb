@@ -1,2 +1,5 @@
-$('#results').replaceWith("<div id='results'> <%= escape_javascript render(@results) %> </div>");
+$('#results').replaceWith("<div class='col-md-9' id='results'> <%= escape_javascript render(@results) %> </div>");
 $('#results').hide().slideDown('4000');
+
+$('#sugerencias').replaceWith("<div class='col-md-3' id='sugerencias'> <%= escape_javascript render(partial: 'sugerencias') %> </div>");
+$('#sugerencias').hide().slideDown('4000');

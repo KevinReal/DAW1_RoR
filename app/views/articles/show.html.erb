@@ -1,11 +1,53 @@
-<%= render  @article %> 
 
-<h3> Comments </h3>
-<div  id="comments">
-  <%= render @article.comments %> 
+<% if @article.owned_by? current_user  %> 
+	<div class="container-fluid">
+    	<span class="actions">
+	        <%= link_to 'Edit', edit_article_path(@article) %> |
+	        <%= link_to "Delete",@article, method: :delete, data: {confirm: "seguro?"} %> 
+    	</span>
+	</div>
+<% end %> 
+
+
+<div class="container">
+    <div class="col-md-12">
+        <%= image_tag(@article.foto, class:"Imagen") if @article.foto.present? %>
+    </div>
 </div>
 
-<%= render file:'comments/new' %> 
+<div class="container">
+    <div class="col-md-9">
+    	<p>Publicado en: <%= @article.published_at.to_date %> por .</p>
+        <h1 class="text-nowrap text-center"><%= @article.title %> </h1>
+        <h3 class="text-justify"><%= @article.subtitle %> </h3>
+        <p class="text-justify"><%= @article.body %></p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+		<div class="col-md-12">
+            <button type="button" class="btn btn-default botonArticulo" data-toggle="collapse" data-target="#demo">Click para ver comentarios</button>
+            <div id="demo" class="collapse">
+                <div class="media" id="media">
+                    <%= render @article.comments %> 
+                </div>
+
+
+				<% if current_user %>
+                	<%= render file:'comments/new' %> 
+				<% else %>
+					<h4><%= link_to "Inicie sesión para comentar", login_path %> </h4>
+				<% end %>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3" id="sugerencias">
+		<hr/>
+    	<h4 class="text-center">Sugerencias</h4>
+  		<%= render partial: "sugerencias" %>
+	</div>
+
+</div>
+
+
+
+

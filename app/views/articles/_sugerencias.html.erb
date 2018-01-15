@@ -1,0 +1,6 @@
+<% @sugerencias.each do |sugerencia| %>
+	<hr/>
+	<%= image_tag(sugerencia.foto, class:"imgSugerencia") if sugerencia.foto.present? %>
+	<h4><%= link_to sugerencia.title, sugerencia %></h4>
+	<span>Fecha: <%= sugerencia.published_at.to_date %></span>
+<% end %>

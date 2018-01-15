@@ -1,24 +1,17 @@
 <%= form_with(model: [@article, @article.comments.new], local: true) do |form| %>
 
-
+  
   <div class="field">
-    <%= form.label :creator %>
-    <%= form.text_field :creator%>
+    <%= form.label :body, 'Deja tu comentario:', class:"comment" %>
+    <%= form.text_area :body, class:"comment"%>
   </div>
 
   <div class="field">
-    <%= form.label :published_at %>
-    <%= form.text_field :published_at %>
+    <input name="comment[user_id]" type="text" hidden value='<%= current_user.id %>'>
   </div>
-
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
 
   <div class="actions">
-    <%= form.submit 'Add' %>
+    <%= submit_tag "Comentar", class:"btn btn-default botonArticulo" %>
   </div>
+
 <% end %>

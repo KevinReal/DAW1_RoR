@@ -1,11 +1,15 @@
 <%= render  @competition %> 
+<% if current_user %>
+	<p class="text-center"><%= link_to 'New Team', new_team_path(@competition) %></p>
+<% end %>
 
-<h3> Teams </h3>
-<div  id="teams">
-  <%= render @competition.teams %> 
+<div class="container">
+	<% @competition.articles.each do |arti| %>
+		<div class="col-md-4">
+			<%= image_tag(arti.foto, class:"Imagen") if arti.foto.present? %>
+			<h2> <%= link_to arti.title, arti %> </h2>
+			<h3> <%= arti.subtitle %> </h3>
+		</div>
+	<% end %>
 </div>
 
-<%= link_to 'New Team', new_team_path(@competition) %> | 
-
-<%= link_to 'Edit', edit_competition_path(@competition) %> |
-<%= link_to 'Back', competitions_path %>

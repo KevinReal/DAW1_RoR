@@ -1,4 +1,5 @@
 class Player < ApplicationRecord
+	mount_uploader :foto, FotoUploader
 	belongs_to :user, optional: true
 	has_many :player_stats, dependent: :nullify
 	belongs_to	:team

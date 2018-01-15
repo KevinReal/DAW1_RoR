@@ -1,0 +1,174 @@
+<style>
+	body{
+	    padding: 10px;
+	}
+	.container-fluid{
+	    margin-top: 10px;
+	}
+
+	.partido{
+	    height: 70px;
+	}
+	img{
+	    display: block;
+	    margin: 0 auto;
+	    height: 100%;
+	    /*float: left;*/
+	}
+	.liga{
+	    margin: 25px;
+	    height: 50%;
+	}
+
+</style>
+<script>
+	$(document).ready(function () {
+	    $('#proximos').hide();
+	});
+	function proximos() {
+	    $('#jugados').hide();
+	    $('#proximos').show();
+	}
+	function jugados() {
+	    $('#proximos').hide();
+	    $('#jugados').show();
+	}
+</script>
+
+<div id="jugados">
+
+    <div class="container">
+        <div class="col-xs-3 col-xs-offset-3">
+            <button type="button" class="btn btn-default" onclick="jugados()">Partidos Jugados</button>
+        </div>
+        <div class="col-xs-3">
+            <button type="button" class="btn btn-default" onclick="proximos()">Partidos Próximos</button>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="container-fluid">
+        <div class="col-sm-2 col-xs-6 partido">
+            <img class="liga" src="../../img/logoEurocup.png" alt="">
+        </div>
+        <div class="col-sm-2 col-xs-6 partido">
+            <h4 class="text-center">16 de Diciembre de 2017</h4>
+        </div>
+        <div class="col-sm-8 col-xs-12 partido">
+            <div class="col-xs-2 partido">
+                <img src="../../img/LogoHerbalife.png" alt="">
+            </div>
+            <div class="col-xs-3 partido">
+                <h4 class="text-center">Herbalife Gran Canaria</h4>
+            </div>
+            <div class="col-xs-2 partido">
+                <h4 class="text-center">93 - 79</h4>
+            </div>
+            <div class="col-xs-3 partido">
+                <h4 class="text-center">Dolomiti Energica Trento</h4>
+            </div>
+            <div class="col-xs-2 partido">
+                <img src="../../img/logoTrento.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="container-fluid">
+        <div class="col-sm-2 col-xs-6 partido">
+            <img class="liga" src="../../img/logoLigaEndesa.png" alt="">
+        </div>
+        <div class="col-sm-2 col-xs-6 partido">
+            <h4 class="text-center">10 de Diciembre de 2017</h4>
+        </div>
+        <div class="col-sm-8 col-xs-12 partido">
+            <div class="col-xs-2 partido">
+                <img src="../../img/logoBarcelona.png" alt="">
+            </div>
+            <div class="col-xs-3 partido">
+                <h4 class="text-center">F.C. Barcelona</h4>
+            </div>
+            <div class="col-xs-2 partido">
+                <h4 class="text-center">93 - 79</h4>
+            </div>
+            <div class="col-xs-3 partido">
+                <h4 class="text-center">Herbalife Gran Canaria</h4>
+            </div>
+            <div class="col-xs-2 partido">
+                <img src="../../img/LogoHerbalife.png" alt="">
+            </div>
+        </div>
+    </div>
+    <hr/>
+</div>
+
+<div id="proximos">
+
+    <div class="container">
+        <div class="col-xs-3 col-xs-offset-3">
+            <button type="button" class="btn btn-default" onclick="jugados()">Partidos Jugados</button>
+        </div>
+        <div class="col-xs-3">
+            <button type="button" class="btn btn-default" onclick="proximos()">Partidos Próximos</button>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="container-fluid">
+        <div class="col-sm-2 col-xs-6 partido">
+            <img class="liga" src="../../img/logoLigaEndesa.png" alt="">
+        </div>
+        <div class="col-sm-2 col-xs-6 partido">
+            <h4 class="text-center">10 de Diciembre de 2017</h4>
+        </div>
+        <div class="col-sm-8 col-xs-12 partido">
+            <div class="col-xs-2 partido">
+                <img src="../../img/logoBarcelona.png" alt="">
+            </div>
+            <div class="col-xs-3 partido">
+                <h4 class="text-center">F.C. Barcelona</h4>
+            </div>
+            <div class="col-xs-2 partido">
+                <h4 class="text-center">VS</h4>
+            </div>
+            <div class="col-xs-3 partido">
+                <h4 class="text-center">Herbalife Gran Canaria</h4>
+            </div>
+            <div class="col-xs-2 partido">
+                <img src="../../img/LogoHerbalife.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+    <div class="container-fluid">
+        <div class="col-sm-2 col-xs-6 partido">
+            <img class="liga" src="../../img/logoEurocup.png" alt="">
+        </div>
+        <div class="col-sm-2 col-xs-6 partido">
+            <h4 class="text-center">16 de Diciembre de 2017</h4>
+        </div>
+        <div class="col-sm-8 col-xs-12 partido">
+            <div class="col-xs-2 partido">
+                <img src="../../img/LogoHerbalife.png" alt="">
+            </div>
+            <div class="col-xs-3 partido">
+                <h4 class="text-center">Herbalife Gran Canaria</h4>
+            </div>
+            <div class="col-xs-2 partido">
+                <h4 class="text-center">VS</h4>
+            </div>
+            <div class="col-xs-3 partido">
+                <h4 class="text-center">Dolomiti Energica Trento</h4>
+            </div>
+            <div class="col-xs-2 partido">
+                <img src="../../img/logoTrento.png" alt="">
+            </div>
+        </div>
+    </div>
+    <hr/>
+</div>

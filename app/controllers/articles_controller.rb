@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     redirect_to({action: :index}, notice: 'Artículo no encontrado') unless @article
+    @sugerencias = Article.of_competition(@article.competition.name).limit(3)
    
   end
 

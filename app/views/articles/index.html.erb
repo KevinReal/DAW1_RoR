@@ -1,19 +1,88 @@
-<h1>Articles</h1>
-<h3> Filtrar por título</h3>
-<%= form_tag articles_path, method: "get", remote: true do %>
-<p>
-  <%= text_field_tag :buscar, params[:buscar] %>
-  <%= submit_tag "Buscar", name: "" %>
-</p>
+<% if current_user %>
+<p class="text-center"><%= link_to 'New Article', new_article_path %></p>
 <% end %>
-<br/>
-<br/>
+
+<% count = 1%>
+<% Competition.all.limit(3).each do |comp|%>
+	<% articles = Article.recent.of_competition(comp.name)%>
+
+	<div class="container-fluid">
+    <div class="container">
+        <div class="col-md-8">
+            <%= image_tag(articles[0].foto, class:"Imagen") if articles[0].foto.present? %>
+            <h2 class="text-center"><%= link_to articles[0].title, articles[0] %></h2>
+            <h4 class="text-justify"> <%= articles[0].subtitle %> </h4>
+            <hr/>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" id=resultLast<%=count%> onclick="toLast(<%=count%>)">Última Jornada</button>
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" id=resultNext<%=count%> onclick="toNext(<%=count%>)">Próxima Jornada</button>
+                        </div>
+                    </div>
+                </div>
 
 
-<div id="articles">
-  <%= render @articles %>
-</div>
+                <div id=tablaUltima<%=count%> style="text-align: center">
+                	<table class="table">
+                		<tr>
+                			<th>V</th>
+                			<th>-</th>
+                			<th>L</th>
+                		</tr>
+                		<% comp.results.con_fecha(Time.now.to_date).each do |result| %>
+	                		<tr>
+	                			<td><%= result.visitor.name %></td>
+	                			<th class="result-td"><%= result.visitorPoints %> - <%= result.localPoints %></th>
+	                			<td><%= result.local.name %></td>
+	                		</tr>
+                		<% end %>
+                	</table>
+                </div>
 
-<br>
 
-<%= link_to 'New Article', new_article_path %>
+                <div hidden id=tablaProxima<%=count%> style="text-align: center">
+                	<table class="table">
+                		<tr>
+                			<th>V</th>
+                			<th>-</th>
+                			<th>L</th>
+                		</tr>
+                		<% comp.results.con_fecha(Time.now.tomorrow.to_date).each do |result| %>
+	                		<tr>
+	                			<td><%= result.visitor.name %></td>
+	                			<th class="result-td"> VS </th>
+	                			<td><%= result.local.name %></td>
+	                		</tr>
+                		<% end %>
+                	</table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+		<% articles.drop(1).each do |art| %>
+			<div class="col-md-4">
+	        	<%= image_tag(art.foto, class:"Imagen") if art.foto.present? %>
+	            <h4 class="text-center">
+	            	<%= link_to art.title, art %>
+	            </h4>
+	            <h5 class="text-justify">
+	                <%= art.subtitle %>
+	            </h5>
+		    </div>	
+		<% end %>
+    </div>
+	</div>
+	<hr />
+	<%count = count + 1 %>
+<% end %>
+
+

@@ -32,13 +32,18 @@
   </div>
 		
 	<div class="field">
-    <%= form.label :team_id_local %>
-    <%= form.number_field :team_id_local, id: :result_team_id_local %>
+    <%= form.label :local_id %>
+    <%= form.number_field :local_id, id: :result_local_id %>
   </div>
 
 	<div class="field">
-    <%= form.label :team_id_visitor %>
-    <%= form.number_field :team_id_visitor, id: :result_team_id_visitor %>
+    <%= form.label :visitor_id %>
+    <%= form.number_field :visitor_id, id: :result_visitor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :competition_id %>
+    <%= form.number_field :competition_id, id: :result_competition_id %>
   </div>
 
   <div class="actions">

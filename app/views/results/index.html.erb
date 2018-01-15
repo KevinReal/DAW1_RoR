@@ -1,17 +1,51 @@
-<h1> Results </h1>
-<h3> Filtrar por fecha</h3>
-<%= form_tag results_path, method: "get", remote: true do %>
-<p>
-  <%= text_field_tag :buscar, params[:buscar] %>
-  <%= submit_tag "Buscar", name: "" %>
-</p>
-<% end %>
-<br/>
-<br/>
+<style type="text/css">
+        .partido{
+            height: 70px;
+        }
+        .imgResultado{
+            display: block;
+            margin: 0 auto;
+            height: 100%;
+            float: left;
+        }
+        .liga{
+            margin: auto;
+            height: 50%;
+        }
+</style>
 
 
-<div id="results">
-  <%= render @results %>
+<div class="container">
+    <div class="col-md-8">
+        <h3 class="lead">Seleciona una competición y una fecha</h3>
+        <%= form_tag results_path, method: "get", remote: true do %>
+
+			<div class="form-group formulario" id="competicion">
+            <%= select_tag "buscarResComp", options_from_collection_for_select(Competition.all, 'name', 'name'), {:class => 'form-control'} %>
+        	</div>
+
+            <div class="input-group formulario" id="fecha">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <%= text_field_tag :buscarResFecha, params[:buscarResFecha], class:"form-control" %>
+            </div>
+            
+            <%= submit_tag "Buscar", class:"btn btn-default" %>
+        
+        <% end %>
+    </div>
+    <hr/>
+</div>
+
+<div class="container">
+    <div class="col-md-9" id="results">
+  		<%= render @results %>
+	</div>
+
+	<div class="col-md-3" id="sugerencias">
+		<h4 class="text-center">Sugerencias</h4>
+		<hr/>
+  		<%= render partial: "sugerencias" %>
+	</div>
 </div>
 
 <br>
